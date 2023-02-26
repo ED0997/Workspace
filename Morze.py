@@ -1,44 +1,7 @@
 '''Morse'''
+import time
 from playsound import playsound
 PATH="Morse sounds/"
-soundrecord ={
-    'A':r'_morse_code.mp3',
-    'B':r'_morse_code.mp3',
-    'C':r'_morse_code.mp3',
-    'D':r'_morse_code.mp3',
-    'E':r'_morse_code.mp3',
-    'F':r'_morse_code.mp3',
-    'G':r'_morse_code.mp3',
-    'H':r'_morse_code.mp3',
-    'I':r'_morse_code.mp3',
-    'J':r'_morse_code.mp3',
-    'K':r'_morse_code.mp3',
-    'L':r'_morse_code.mp3',
-    'M':r'_morse_code.mp3',
-    'N':r'_morse_code.mp3',
-    'O':r'_morse_code.mp3',
-    'P':r'_morse_code.mp3',
-    'Q':r'_morse_code.mp3',
-    'R':r'_morse_code.mp3',
-    'S':r'_morse_code.mp3',
-    'T':r'_morse_code.mp3',
-    'U':r'_morse_code.mp3',
-    'V':r'_morse_code.mp3',
-    'W':r'_morse_code.mp3',
-    'X':r'_morse_code.mp3',
-    'Y':r'_morse_code.mp3',
-    'Z':r'_morse_code.mp3',
-    '0':r'_morse_code.mp3',
-    '1':r'_morse_code.mp3',
-    '2':r'_morse_code.mp3',
-    '3':r'_morse_code.mp3',
-    '4':r'_morse_code.mp3',
-    '5':r'_morse_code.mp3',
-    '6':r'_morse_code.mp3',
-    '7':r'_morse_code.mp3',
-    '8':r'_morse_code.mp3',
-    '9':r'_morse_code.mp3',
-}
 dct=  {
     'A':'.-',
     'B':'-...',
@@ -79,10 +42,9 @@ dct=  {
   }
 word=input('Write message: ')
 for i in word:
- for dkey in dct:
-  for skey in soundrecord:     
-     if i.upper()==dkey and i.upper()==skey:
-         word=word.replace(i,dct[dkey])
-         playsound(PATH+skey+soundrecord[skey])
+ for key in dct:
+     if i.upper()==key:
+         word=word.replace(i,dct[key])
+         playsound(PATH + key + r'_morse_code.mp3')
+         time.sleep(0.3)
 print(word)
-
